@@ -53,7 +53,6 @@ services:
     networks:
       - amazeeio-network
       - default
-    <<: *default-user
     environment:
       <<: *default-environment
 
@@ -61,7 +60,7 @@ services:
     image: amazeeio/postgres-ckan
     ports:
       - "5432"
-    <<: *default-user
+    #<<: *default-user
     networks:
       - amazeeio-network
       - default
@@ -70,7 +69,7 @@ services:
 
   redis:
     image: redis:6-alpine
-    <<: *default-user
+    #<<: *default-user
     environment:
       <<: *default-environment
     networks:
@@ -94,7 +93,7 @@ services:
     depends_on:
       - ckan
     <<: *default-volumes
-    <<: *default-user
+    #<<: *default-user
     environment:
       <<: *default-environment
     networks:
